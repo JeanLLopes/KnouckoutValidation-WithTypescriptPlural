@@ -1,5 +1,6 @@
 ﻿
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index Knockout";
 }
 @section scripts
@@ -7,14 +8,23 @@
     <script src="~/ViewModels/IndexViewModel.js"></script>
     <script type="text/javascript">
         (function () {
-            var vm = kjs.validation.IndexViewModel();
+            var vm = new kjs.validation.IndexViewModel();
+            var dom = $("#demoArea")[0]
 
-            ko.applyBindings(vm)
+            ko.applyBindingsWithValidation(vm, dom);
         })();
     </script>
 }
 
 <h2>Index</h2>
+
+<div id="demoArea">
+    <div>
+        <input type="text" data-bind="value: FavoriteSport" />
+        <br />
+        <input type="button"  value="Save" />
+    </div>
+</div>
 
 
 

@@ -230,6 +230,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\typings\knockout.validation\knockout.validation.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\tests\jasmine.extensions.d.ts" />
     <TypeScriptCompile Include="ViewModels\IndexViewModel.ts" />
   </ItemGroup>
   <ItemGroup>
