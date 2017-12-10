@@ -1,0 +1,2 @@
+# KnouckoutValidation-WithTypescriptPlural
+Knouckout Validation With Typescript
