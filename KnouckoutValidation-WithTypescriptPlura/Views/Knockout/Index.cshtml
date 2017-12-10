@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index Knockout";
+}
+@section scripts
+{
+    <script src="~/ViewModels/IndexViewModel.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var vm = kjs.validation.IndexViewModel();
+
+            ko.applyBindings(vm)
+        })();
+    </script>
+}
+
+<h2>Index</h2>
+
+
+
+
