@@ -45,9 +45,16 @@
         <label>PhoneNumberCase</label>
         <input type="tel" data-bind="value: PhoneNumberCase" />
         <br />
+        <p class="text-uppercase">Custom Validation</p>
         <label>MustBePositiveNumber</label>
         <input type="text" data-bind="value: MustBePositiveNumber" />
         <br />
+        <p class="text-uppercase">Custom Validation Computed</p>
+        <label>MustBePositiveNumber</label>
+        <input type="text" data-bind="value: CustomValidationValue1" />
+        <input type="text" data-bind="value: CustomValidationValue2" />
+        <br />
+        <span class="has-error validationMessage" data-bind="validationMessage: CustomValidationTotal"></span>
         <input type="button"  value="Save" />
     </div>
 </div>

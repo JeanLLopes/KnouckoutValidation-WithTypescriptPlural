@@ -19,9 +19,21 @@ module kjs.validation {
         //CUSTOM    
         public MustBePositiveNumber: KnockoutObservable<number> = ko.observable(0);
 
+        //CUSTOM 2
+        public CustomValidationValue1: KnockoutObservable<number> = ko.observable(0);
+        public CustomValidationValue2: KnockoutObservable<number> = ko.observable(0);
+        public CustomValidationTotal: KnockoutComputed<number>;
+
         constructor() {
             this.SetupValidation();
             this.SetupCustomValidation();
+
+            this.CustomValidationTotal = ko.computed(() => {
+                return this.CustomValidationValue1() + this.CustomValidationValue2();
+            });
+            this.SetupCustomValidationComputed();
+
+
         };
 
         private SetupValidation() {
@@ -48,6 +60,20 @@ module kjs.validation {
             this.MustBePositiveNumber.extend({
                 isPositiveNumber: true
             });
+        }
+        private SetupCustomValidationComputed() {
+            ko.validation.rules['isPositiveNumber'] = {
+                validator: function (val, otherVal) {
+                    return val >= 0;
+                },
+                message: "Total must be positive"
+            };
+            ko.validation.registerExtenders();
+            this.CustomValidationTotal.extend({
+                isPositiveNumber: {
+                    message: "Total cannot be less than 0",
+                }
+            })
         }
     }
 }

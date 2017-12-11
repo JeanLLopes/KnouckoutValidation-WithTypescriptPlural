@@ -7,6 +7,7 @@ var kjs;
     (function (validation) {
         var IndexViewModel = (function () {
             function IndexViewModel() {
+                var _this = this;
                 //    public FavoriteSport: KnockoutObservable<string> = ko.observable("Futeball")
                 //        .extend({ required: true });
                 //}
@@ -20,8 +21,15 @@ var kjs;
                 this.PhoneNumberCase = ko.observable("");
                 //CUSTOM    
                 this.MustBePositiveNumber = ko.observable(0);
+                //CUSTOM 2
+                this.CustomValidationValue1 = ko.observable(0);
+                this.CustomValidationValue2 = ko.observable(0);
                 this.SetupValidation();
                 this.SetupCustomValidation();
+                this.CustomValidationTotal = ko.computed(function () {
+                    return _this.CustomValidationValue1() + _this.CustomValidationValue2();
+                });
+                this.SetupCustomValidationComputed();
             }
             ;
             IndexViewModel.prototype.SetupValidation = function () {
@@ -45,6 +53,20 @@ var kjs;
             IndexViewModel.prototype.SetupCustomValidation = function () {
                 this.MustBePositiveNumber.extend({
                     isPositiveNumber: true
+                });
+            };
+            IndexViewModel.prototype.SetupCustomValidationComputed = function () {
+                ko.validation.rules['isPositiveNumber'] = {
+                    validator: function (val, otherVal) {
+                        return val >= 0;
+                    },
+                    message: "Total must be positive"
+                };
+                ko.validation.registerExtenders();
+                this.CustomValidationTotal.extend({
+                    isPositiveNumber: {
+                        message: "Total cannot be less than 0",
+                    }
                 });
             };
             return IndexViewModel;
