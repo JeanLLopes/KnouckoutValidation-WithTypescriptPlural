@@ -12,6 +12,8 @@ module kjs.validation {
         public IfEqualValue: KnockoutObservable<string> = ko.observable("");
         public IfNotEqualValue: KnockoutObservable<string> = ko.observable("");
         public NonObjectValue: KnockoutObservable<string> = ko.observable("");
+        public AllowLowerCase: KnockoutObservable<string> = ko.observable("");
+        public PhoneNumberCase: KnockoutObservable<string> = ko.observable("");
 
         constructor() {
             this.SetupValidation();
@@ -32,7 +34,9 @@ module kjs.validation {
                     params: this.FavoriteSport,message: "The Value is equal to Futeball"
                 }
             })
-            this.NonObjectValue.extend({ equal: { params: "Red",message: "value expect is 'Red'"}})
+            this.NonObjectValue.extend({ equal: { params: "Red", message: "value expect is 'Red'" } })
+            this.AllowLowerCase.extend({ pattern: { params: "^[a-z]*$", message: "Only Accept caraters in lowecase" } })
+            this.PhoneNumberCase.extend({ pattern: { params: "[0-9]{2}-[0-9]{4}-[0-9]{4}", message: "Only accept phone number in format 12-1111-1111"}})
         };
     }
 }

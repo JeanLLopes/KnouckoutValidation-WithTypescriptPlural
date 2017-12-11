@@ -15,6 +15,8 @@ var kjs;
                 this.IfEqualValue = ko.observable("");
                 this.IfNotEqualValue = ko.observable("");
                 this.NonObjectValue = ko.observable("");
+                this.AllowLowerCase = ko.observable("");
+                this.PhoneNumberCase = ko.observable("");
                 this.SetupValidation();
             }
             ;
@@ -33,6 +35,8 @@ var kjs;
                     }
                 });
                 this.NonObjectValue.extend({ equal: { params: "Red", message: "value expect is 'Red'" } });
+                this.AllowLowerCase.extend({ pattern: { params: "^[a-z]*$", message: "Only Accept caraters in lowecase" } });
+                this.PhoneNumberCase.extend({ pattern: { params: "[0-9]{2}-[0-9]{4}-[0-9]{4}", message: "Only accept phone number in format 12-1111-1111" } });
             };
             ;
             return IndexViewModel;
