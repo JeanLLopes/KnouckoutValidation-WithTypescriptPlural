@@ -5,6 +5,7 @@
 }
 @section scripts
 {
+    <script src="~/ViewModels/IsPositiveNumberRule.js"></script>
     <script src="~/ViewModels/IndexViewModel.js"></script>
     <script type="text/javascript">
         (function () {
@@ -43,6 +44,9 @@
         <br />
         <label>PhoneNumberCase</label>
         <input type="tel" data-bind="value: PhoneNumberCase" />
+        <br />
+        <label>MustBePositiveNumber</label>
+        <input type="text" data-bind="value: MustBePositiveNumber" />
         <br />
         <input type="button"  value="Save" />
     </div>

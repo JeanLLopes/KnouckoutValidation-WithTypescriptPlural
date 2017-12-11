@@ -1,3 +1,4 @@
+//add references
 /// <reference path="../scripts/typings/knockout.validation/knockout.validation.d.ts" />
 /// <reference path="../scripts/typings/knockout/knockout.d.ts" />
 var kjs;
@@ -17,7 +18,10 @@ var kjs;
                 this.NonObjectValue = ko.observable("");
                 this.AllowLowerCase = ko.observable("");
                 this.PhoneNumberCase = ko.observable("");
+                //CUSTOM    
+                this.MustBePositiveNumber = ko.observable(0);
                 this.SetupValidation();
+                this.SetupCustomValidation();
             }
             ;
             IndexViewModel.prototype.SetupValidation = function () {
@@ -38,7 +42,11 @@ var kjs;
                 this.AllowLowerCase.extend({ pattern: { params: "^[a-z]*$", message: "Only Accept caraters in lowecase" } });
                 this.PhoneNumberCase.extend({ pattern: { params: "[0-9]{2}-[0-9]{4}-[0-9]{4}", message: "Only accept phone number in format 12-1111-1111" } });
             };
-            ;
+            IndexViewModel.prototype.SetupCustomValidation = function () {
+                this.MustBePositiveNumber.extend({
+                    isPositiveNumber: true
+                });
+            };
             return IndexViewModel;
         }());
         validation.IndexViewModel = IndexViewModel;

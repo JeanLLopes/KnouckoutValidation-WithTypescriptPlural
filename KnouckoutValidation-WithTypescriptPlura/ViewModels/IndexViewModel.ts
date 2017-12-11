@@ -1,4 +1,5 @@
-﻿/// <reference path="../scripts/typings/knockout.validation/knockout.validation.d.ts" />
+﻿//add references
+/// <reference path="../scripts/typings/knockout.validation/knockout.validation.d.ts" />
 /// <reference path="../scripts/typings/knockout/knockout.d.ts" />
 
 module kjs.validation {
@@ -15,8 +16,12 @@ module kjs.validation {
         public AllowLowerCase: KnockoutObservable<string> = ko.observable("");
         public PhoneNumberCase: KnockoutObservable<string> = ko.observable("");
 
+        //CUSTOM    
+        public MustBePositiveNumber: KnockoutObservable<number> = ko.observable(0);
+
         constructor() {
             this.SetupValidation();
+            this.SetupCustomValidation();
         };
 
         private SetupValidation() {
@@ -36,7 +41,13 @@ module kjs.validation {
             })
             this.NonObjectValue.extend({ equal: { params: "Red", message: "value expect is 'Red'" } })
             this.AllowLowerCase.extend({ pattern: { params: "^[a-z]*$", message: "Only Accept caraters in lowecase" } })
-            this.PhoneNumberCase.extend({ pattern: { params: "[0-9]{2}-[0-9]{4}-[0-9]{4}", message: "Only accept phone number in format 12-1111-1111"}})
-        };
+            this.PhoneNumberCase.extend({ pattern: { params: "[0-9]{2}-[0-9]{4}-[0-9]{4}", message: "Only accept phone number in format 12-1111-1111" } })
+
+        }
+        private SetupCustomValidation() {
+            this.MustBePositiveNumber.extend({
+                isPositiveNumber: true
+            });
+        }
     }
 }
