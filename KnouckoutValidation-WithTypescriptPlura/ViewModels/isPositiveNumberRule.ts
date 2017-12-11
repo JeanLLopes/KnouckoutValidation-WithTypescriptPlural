@@ -1,4 +1,5 @@
 ﻿/// <reference path="../scripts/typings/knockout.validation/knockout.validation.d.ts" />
+
 interface KnockoutValidationRuleDefinition {
     isPositiveNumber: KnockoutValidationRuleDefinition 
 }
