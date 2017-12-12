@@ -24,12 +24,16 @@ var kjs;
                 //CUSTOM 2
                 this.CustomValidationValue1 = ko.observable(0);
                 this.CustomValidationValue2 = ko.observable(0);
+                //CONSICIONAL VALIDATION
+                this.RequiresValidation = ko.observable(false);
+                this.ValueToValidate = ko.observable(0);
                 this.SetupValidation();
                 this.SetupCustomValidation();
                 this.CustomValidationTotal = ko.computed(function () {
                     return _this.CustomValidationValue1() + _this.CustomValidationValue2();
                 });
                 this.SetupCustomValidationComputed();
+                this.SetupCustomValidationConditinal();
             }
             ;
             IndexViewModel.prototype.SetupValidation = function () {
@@ -69,8 +73,18 @@ var kjs;
                     }
                 });
             };
+            IndexViewModel.prototype.SetupCustomValidationConditinal = function () {
+                var _this = this;
+                this.ValueToValidate.extend({
+                    required: {
+                        message: "Need to populate with text",
+                        onlyIf: function () { return _this.RequiresValidation() === true; }
+                    }
+                });
+            };
             return IndexViewModel;
         }());
         validation.IndexViewModel = IndexViewModel;
     })(validation = kjs.validation || (kjs.validation = {}));
 })(kjs || (kjs = {}));
+//# sourceMappingURL=IndexViewModel.js.map

@@ -54,6 +54,12 @@
         <input type="text" data-bind="value: CustomValidationValue1" />
         <input type="text" data-bind="value: CustomValidationValue2" />
         <br />
+        <p class="text-uppercase">Custom Validation Condicional</p>
+        <label>If Only Required checkbox checked true</label>
+        <input type="checkbox" data-bind="checked: RequiresValidation" />
+        <input type="text" data-bind="value: ValueToValidate" placeholder="Enter text" />
+        <br />
+
         <span class="has-error validationMessage" data-bind="validationMessage: CustomValidationTotal"></span>
         <input type="button"  value="Save" />
     </div>

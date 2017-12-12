@@ -24,15 +24,20 @@ module kjs.validation {
         public CustomValidationValue2: KnockoutObservable<number> = ko.observable(0);
         public CustomValidationTotal: KnockoutComputed<number>;
 
+        //CONSICIONAL VALIDATION
+        public RequiresValidation: KnockoutObservable<boolean> = ko.observable(false);
+        public ValueToValidate: KnockoutObservable<number> = ko.observable(0);
+
         constructor() {
             this.SetupValidation();
             this.SetupCustomValidation();
+           
 
             this.CustomValidationTotal = ko.computed(() => {
                 return this.CustomValidationValue1() + this.CustomValidationValue2();
             });
             this.SetupCustomValidationComputed();
-
+            this.SetupCustomValidationConditinal();
 
         };
 
@@ -74,6 +79,14 @@ module kjs.validation {
                     message: "Total cannot be less than 0",
                 }
             })
+        }
+        private SetupCustomValidationConditinal() {
+            this.ValueToValidate.extend({
+                required: {
+                    message: "Need to populate with text",
+                    onlyIf: () => { return this.RequiresValidation() === true}
+                }
+            });
         }
     }
 }
