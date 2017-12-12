@@ -12,25 +12,41 @@
             var vm = new kjs.validation.IndexValidationAdvancedConfigViewModel();
             var dom = $("#demoArea")[0]
 
-            ko.applyBindingsWithValidation(vm, dom);
+            //CONFIGURATION
+            var configuration = {
+                insertMessages: true,
+                messageTemplate: "customTemplate"
+            }
+            ko.applyBindingsWithValidation(vm, dom, configuration);
         })();
     </script>
 }
 
+<script type="text/html" id="customTemplate">
+    <span data-bind="if:field.isModified() && !field.isValid()">
+        <a href="#" data-toggle="tooltip" data-bind="attr: {title: field.error}, text: field.error"></a>
+    </span>
+</script>
 
 <h2>IndexValidationAdvancedConfig</h2>
 <br />
 <div id="demoArea">
-    <div>
-        <label>First Name</label>
-        <input type="text" data-bind="value: FirstName" placeholder="First Name" />
+    <div class="row well">
+        <div class="col-md-6 col-md-offset-4">
+            <label>First Name</label>
+            <input type="text" data-bind="value: FirstName" placeholder="First Name" />
+        </div>
         <br />
-        <label>Last Name</label>
-        <input type="text" data-bind="value: LastName" placeholder="Last Name" />
+        <div class="col-md-6 col-md-offset-4">
+            <label>Last Name</label>
+            <input type="text" data-bind="value: LastName" placeholder="Last Name" />
+        </div>
         <br />
-        <label>Age</label>
-        <input type="number" data-bind="value: Age" placeholder="Age" />
-        <br />
+        <div class="col-md-6 col-md-offset-4">
+            <label>Age</label>
+            <input type="number" data-bind="value: Age" placeholder="Age" />
+            <br />
+        </div>
     </div>
 </div>
 
