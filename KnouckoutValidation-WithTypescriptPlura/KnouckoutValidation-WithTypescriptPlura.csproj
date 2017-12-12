@@ -236,6 +236,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\knockout.validation.min.js.map" />
     <Content Include="Views\Knockout\Index.cshtml" />
+    <Content Include="Views\Knockout\IndexValidationAdvancedConfig.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -247,6 +248,7 @@
     <TypeScriptCompile Include="Scripts\typings\knockout.validation\knockout.validation.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\tests\jasmine.extensions.d.ts" />
+    <TypeScriptCompile Include="ViewModels\IndexValidationAdvancedConfigViewModel.ts" />
     <TypeScriptCompile Include="ViewModels\IndexViewModel.ts" />
     <TypeScriptCompile Include="ViewModels\isPositiveNumberRule.ts" />
   </ItemGroup>

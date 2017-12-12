@@ -13,5 +13,9 @@ namespace KnouckoutValidation_WithTypescriptPlura.Controllers
         {
             return View();
         }
+        public ActionResult IndexValidationAdvancedConfig()
+        {
+            return View();
+        }
     }
 }

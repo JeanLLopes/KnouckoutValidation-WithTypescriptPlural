@@ -11,4 +11,3 @@
     };
     ko.validation.registerExtenders();
 })();
-//# sourceMappingURL=isPositiveNumberRule.js.map

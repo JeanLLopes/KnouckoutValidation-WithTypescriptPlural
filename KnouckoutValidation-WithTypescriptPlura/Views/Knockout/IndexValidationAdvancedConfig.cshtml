@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "IndexValidationAdvancedConfig";
+}
+@section scripts
+{
+    <script src="~/ViewModels/IsPositiveNumberRule.js"></script>
+    <script src="~/ViewModels/IndexValidationAdvancedConfigViewModel.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var vm = new kjs.validation.IndexValidationAdvancedConfigViewModel();
+            var dom = $("#demoArea")[0]
+
+            ko.applyBindingsWithValidation(vm, dom);
+        })();
+    </script>
+}
+
+
+<h2>IndexValidationAdvancedConfig</h2>
+<br />
+<div id="demoArea">
+    <div>
+        <label>First Name</label>
+        <input type="text" data-bind="value: FirstName" placeholder="First Name" />
+        <br />
+        <label>Last Name</label>
+        <input type="text" data-bind="value: LastName" placeholder="Last Name" />
+        <br />
+        <label>Age</label>
+        <input type="number" data-bind="value: Age" placeholder="Age" />
+        <br />
+    </div>
+</div>
+
