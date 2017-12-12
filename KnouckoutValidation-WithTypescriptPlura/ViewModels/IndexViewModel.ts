@@ -24,9 +24,13 @@ module kjs.validation {
         public CustomValidationValue2: KnockoutObservable<number> = ko.observable(0);
         public CustomValidationTotal: KnockoutComputed<number>;
 
-        //CONSICIONAL VALIDATION
+        //CONDICIONAL VALIDATION
         public RequiresValidation: KnockoutObservable<boolean> = ko.observable(false);
         public ValueToValidate: KnockoutObservable<number> = ko.observable(0);
+
+        //HTML5 VALIDATION
+        public RequiredValidation: KnockoutObservable<string> = ko.observable("");
+        public RangeFieldValidation: KnockoutObservable<number> = ko.observable(0);
 
         constructor() {
             this.SetupValidation();

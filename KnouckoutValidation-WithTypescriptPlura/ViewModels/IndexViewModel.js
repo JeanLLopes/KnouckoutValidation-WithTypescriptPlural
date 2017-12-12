@@ -24,9 +24,12 @@ var kjs;
                 //CUSTOM 2
                 this.CustomValidationValue1 = ko.observable(0);
                 this.CustomValidationValue2 = ko.observable(0);
-                //CONSICIONAL VALIDATION
+                //CONDICIONAL VALIDATION
                 this.RequiresValidation = ko.observable(false);
                 this.ValueToValidate = ko.observable(0);
+                //HTML5 VALIDATION
+                this.RequiredValidation = ko.observable("");
+                this.RangeFieldValidation = ko.observable(0);
                 this.SetupValidation();
                 this.SetupCustomValidation();
                 this.CustomValidationTotal = ko.computed(function () {

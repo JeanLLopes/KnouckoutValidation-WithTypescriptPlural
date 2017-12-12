@@ -12,7 +12,11 @@
             var vm = new kjs.validation.IndexViewModel();
             var dom = $("#demoArea")[0]
 
-            ko.applyBindingsWithValidation(vm, dom);
+            //HTML5 VALIDATION NEEDS
+            var options = {
+                parseInputAttributes : true
+            }
+            ko.applyBindingsWithValidation(vm, dom, options);
         })();
     </script>
 }
@@ -59,8 +63,16 @@
         <input type="checkbox" data-bind="checked: RequiresValidation" />
         <input type="text" data-bind="value: ValueToValidate" placeholder="Enter text" />
         <br />
-
         <span class="has-error validationMessage" data-bind="validationMessage: CustomValidationTotal"></span>
+        <p class="text-uppercase">Custom Validation HTML5</p>
+        <label>Required HTML5</label>
+        <input type="text" data-bind="value: RequiredValidation" required="required" placeholder="Enter text" />
+        <p><span class="text-danger validationMessage" data-bind="validationMessage: RequiredValidation"></span></p>
+        <br />
+        <label>Range HTML5</label>
+        <input type="number" data-bind="value: RangeFieldValidation" step="1" max="5" min="10" />
+        <p><span class="text-danger validationMessage" data-bind="validationMessage: RangeFieldValidation"></span></p>
+
         <input type="button"  value="Save" />
     </div>
 </div>
